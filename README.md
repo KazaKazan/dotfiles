@@ -2,6 +2,7 @@
 Dotfiles and extras for my arch rice. This rice uses (or rather has the config files and whatnot for):
 
 * i3-gaps
+* urxvt
 * cmus
 * neofetch
 * ranger
