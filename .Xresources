@@ -1,0 +1,41 @@
+!!! Colorscheme
+
+!! Specials
+
+*.foreground:	#ffffff
+*.background:	#333333
+*.cursorColor:	#d87de3
+
+!! Colors
+!! Format is Lighter-Darker
+
+! Background
+*.color0:	#333333
+*.color8:	#191919
+
+! Foreground
+*.color1:	#ffffff
+*.color9:	#595959
+
+! First Accent
+*.color2:	#d87de3
+*.color10:	#553159
+
+! Second Accent
+*.color3:	#7de3e0
+*.color11:	#315958
+
+! Third Accent
+*.color4:	#d87de3
+*.color12:	#553159
+
+!! Disable Scrollbar
+URxvt.scrollBar: false
+
+!! Font Stuff
+URxvt.font: xft:Monospace:noto:size=11
+URxvt.letterSpace:0
+
+!! Transparency
+*.transparent: true
+*.shading: 30
