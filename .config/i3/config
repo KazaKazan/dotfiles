@@ -42,8 +42,8 @@ exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status ; exec ~/.config/scripts/volume.sh
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status ; exec ~/.config/scripts/volume.sh
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status ; exec sh ~/.config/scripts/volume.sh
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status ; exec sh ~/.config/scripts/volume.sh
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status ; exec "notify-send 'Mute toggled'"
 
 # Brightness control
@@ -52,8 +52,8 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20
 
 # Media
 bindsym XF86AudioPlay exec playerctl play-pause ; exec "dunstify Play/Pause -r 5"
-bindsym XF86AudioNext exec playerctl next ; exec ~/.config/scripts/music_playing.sh
-bindsym XF86AudioPrev exec playerctl previous ; exec ~/.config/scripts/music_playing.sh
+bindsym XF86AudioNext exec playerctl next ; exec sh ~/.config/scripts/music_playing.sh
+bindsym XF86AudioPrev exec playerctl previous ; exec sh ~/.config/scripts/music_playing.sh
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -200,6 +200,7 @@ bindsym $mod+r mode "resize"
 
 exec_always sh ~/.config/scripts/start_up.sh
 exec_always --no-startup-id dunst
-bindsym $mod+t exec ~/.config/scripts/show_time.sh
-bindsym $mod+b exec ~/.config/scripts/show_battery.sh
-bindsym $mod+x exec ~/.config/scripts/shutdown.sh
+exec_always "setxkbmap tr"
+bindsym $mod+t exec sh ~/.config/scripts/show_time.sh
+bindsym $mod+b exec sh ~/.config/scripts/show_battery.sh
+bindsym $mod+x exec sh ~/.config/scripts/shutdown.sh

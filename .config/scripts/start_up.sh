@@ -1,4 +1,4 @@
-feh --no-fehbg --bg-scale '~/.config/walp/walp.jpg'
+feh --no-fehbg --bg-scale ~/.config/walp/walp.jpg
 
 i3-msg "workspace 10; append_layout ~/.config/i3/music.json"
 
