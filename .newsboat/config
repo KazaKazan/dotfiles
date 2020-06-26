@@ -1,0 +1,19 @@
+# Options
+auto-reload yes
+browser			w3m
+refresh-on-startup	yes
+reload-time		60
+show-keymap-hint	no
+show-title-bar		no
+wrap-scroll		yes
+feedlist-format		"%t %> %u"
+articlelist-format	"%4i %f %D   %?T?|%-17T|  ?%t"
+
+# Macros
+macro y set browser vlc ; open-in-browser ; set browser w3m
+
+# Colors
+color listfocus			white magenta bold
+color listfocus_unread		white magenta bold
+highlight feedlist "=(.*)"	magenta default
+highlight feedlist "==(.*)"	cyan default
