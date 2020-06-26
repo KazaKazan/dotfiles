@@ -4,18 +4,19 @@ Dotfiles and extras for my arch rice. This rice uses (or rather has the config f
 * i3-gaps
 * urxvt
 * cmus
-* neofetch
 * ranger
 * cava
 * nano
 * dunst
+* newsboat
 * also has my bashrc file
 
 These files include some scripts as well. These scripts are for convenience and are bound to hotkeys in i3.
 
 * Mod+t will bring up a notification with date/time,
 * Mod+b will bring up a notification with battery percentage and status
-* Mod+x will bring up a dmenu with logout, shutdown and reboot functions (logout is kinda weird currently)
+* Mod+x will bring up a dmenu with logout, shutdown and reboot functions (logout only works if you have a greeter)
+* There is a todo command that's at the moment very basic. Do "todo -h" to get started.
 * There's also a startup script that automatically assigns loadouts to certain workspaces and launches the necessary applications etc. as shown below.
 
 Workspace 0 (startpage) (this startpage is hosted ![here](http://www.kazakaza.xyz/startpage.html) and you can find the repository for it ![here](https://github.com/KazaKazan/startpage) if you want to customize it or host it yourself, by default this workspace with launch with firefox in fullscreen with whatever is set as your startpage)
