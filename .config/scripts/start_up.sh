@@ -4,6 +4,10 @@ i3-msg "workspace 10; append_layout ~/.config/i3/music.json"
 
 urxvt -name cmus -e cmus &
 
+i3-msg "workspace 9; append_layout ~/.config/i3/rss.json"
+
+urxvt -name newsboat -e newsboat &
+
 i3-msg "workspace 2; append_layout ~/.config/i3/main_layout.json"
 
 urxvt -e cava &
