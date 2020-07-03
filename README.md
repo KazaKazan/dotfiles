@@ -16,6 +16,7 @@ These files include some scripts as well. These scripts are for convenience and 
 * Mod+t will bring up a notification with date/time,
 * Mod+b will bring up a notification with battery percentage and status
 * Mod+x will bring up a dmenu with logout, shutdown and reboot functions (logout only works if you have a greeter)
+* Mod+s will bring up a dmenu with the non-hidden scripts in .config/scripts file
 * There is a todo command that's at the moment very basic. Do "todo -h" to get started.
 * There's also a startup script that automatically assigns loadouts to certain workspaces and launches the necessary applications etc. as shown below.
 
