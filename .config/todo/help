@@ -1,0 +1,7 @@
+[OPTIONS]
+-h	Display this text
+-e	Edit your file directly with a text editor
+[USAGE]
+You can pass options to the program through the category selection screen, which is the first screen you will see after launching it through the scripts menu. 
+
+Currently there is no way to add new items through dmenu, this is planned to be added as a feature.

@@ -1,0 +1,32 @@
+#!/bin/bash
+
+#Dmenu variables
+FOREGROUND=$(echo $(xrdb -query | grep '*.color2') | cut -d " " -f 2)
+BACKGROUND=$(echo $(xrdb -query | grep '*.color8') | cut -d " " -f 2)
+ACCENT=$(echo $(xrdb -query | grep '*.color3') | cut -d " " -f 2)
+DMENU="dmenu -i -nf $FOREGROUND -nb $BACKGROUND -sb $BACKGROUND -sf $ACCENT -fn 'monospace-11'"
+
+#Define Path
+FDIR=$HOME/.config/todo
+
+#Code Tiem
+CATEGORY=$(grep = $FDIR/list | awk '{ print $2 }' | $DMENU -p Category:)
+if [ -n $CATEGORY ]
+then
+	if [ $CATEGORY = "-e" ]
+	then
+		urxvt -e nano $FDIR/list
+	elif [ $CATEGORY = "-h" ]
+	then
+		urxvt -e less $FDIR/help
+	else
+		CATEGORY="= $CATEGORY"
+		FORMAT=$(printf '/^%s$/,/^= .*$/ {/^%s$/d;/^=.*$/d;p}' "$CATEGORY" "$CATEGORY")
+		ITEM=$(sed -n "$FORMAT" $FDIR/list | $DMENU -l 10 -p Item:)
+		if [ -n $ITEM ]
+		then
+			ITEM=$(printf '{/%s$/d;p}' "$ITEM")
+			sed -n -i "$ITEM" ../todo/list
+		fi
+	fi
+fi

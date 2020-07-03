@@ -1,0 +1,9 @@
+#!/bin/bash
+
+FOREGROUND=$(echo $(xrdb -query | grep '*.color2') | cut -d " " -f 2)
+BACKGROUND=$(echo $(xrdb -query | grep '*.color8') | cut -d " " -f 2)
+ACCENT=$(echo $(xrdb -query | grep '*.color3') | cut -d " " -f 2)
+
+DMENU="dmenu -i -nf $FOREGROUND -nb $BACKGROUND -sb $BACKGROUND -sf $ACCENT -fn 'monospace-11' -p Script:"
+
+ls $HOME/.config/scripts | $DMENU | xargs printf '%s/.config/scripts/%s' $HOME | xargs sh

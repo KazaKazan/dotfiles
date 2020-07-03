@@ -1,9 +1,0 @@
-[OPTIONS]
--h		Displays this file
--w		Wipes your list
--a [arg]	Appends [arg] to your list
--e		Opens your list in your editor
-[USAGE]
-Lines starting with "===" will be interpreted as categories and they will be colored as such.
-Lines starting with "==" will be interpreted as subcategories and they will be colored as such.
-Lines starting with "!" will be interpreted as important items and they will be colored as such.

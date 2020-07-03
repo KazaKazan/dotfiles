@@ -1,0 +1,1 @@
+i3-msg [class=".*"] kill && sh $HOME/.config/scripts/.startup

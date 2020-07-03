@@ -11,7 +11,7 @@
 
 ! Background
 *.color0:	#333333
-*.color8:	#191919
+*.color8:	#000000
 
 ! Foreground
 *.color1:	#ffffff
@@ -33,7 +33,7 @@
 URxvt.scrollBar: false
 
 !! Font Stuff
-URxvt.font: xft:Monospace:noto:size=11
+URxvt.font: xft:Monospace:noto:size=12
 URxvt.letterSpace:0
 
 !! Transparency
