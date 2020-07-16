@@ -1,7 +1,38 @@
-[OPTIONS]
--h	Display this text
--e	Edit your file directly with a text editor
-[USAGE]
-You can pass options to the program through the category selection screen, which is the first screen you will see after launching it through the scripts menu. 
+[GENERAL INFORMATION]
 
+= OPTIONS =
+
+-h	Display this text
+-e	Edit your list file directly with a text editor
+
+= USAGE =
+
+You can pass options to the program by manually entering the options on the dmenu screen. 
 Currently there is no way to add new items through dmenu, this is planned to be added as a feature.
+
+[LIST FILE FORMATTING]
+
+Below is an explanation on how to format your list file.
+
+= FLAGS =
+
+Flags are what the program uses to determine what kind of item is a line in the file. The available flags are as follows:
+
+=	Category Flag - Displays the line as a category with the lines below it being its items.
+!	File Path - Attempts to open the file in the given absolute path with xdg-open. (Configurable within the script itself.)
+#	Link - Attemps to open the link with a browser. (Configurable within the script.)
+
+= USAGE =
+
+The correct way to use flags is to put them at the start of the line and leave one space between the item and the flag as such;
+
+[flag] [item]
+
+Anything above the first category in the file is ignored. An example list file would look like as shown;
+
+Comment
+= Category_1
+! File Path
+= Category_2
+# Link
+Regular Item

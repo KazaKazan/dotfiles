@@ -6,11 +6,15 @@ BACKGROUND=$(echo $(xrdb -query | grep '*.color8') | cut -d " " -f 2)
 ACCENT=$(echo $(xrdb -query | grep '*.color3') | cut -d " " -f 2)
 DMENU="dmenu -i -nf $FOREGROUND -nb $BACKGROUND -sb $BACKGROUND -sf $ACCENT -fn 'monospace-11'"
 
-#Define Path
+#User variables
+#Path to your todo folder containing your list file and the help file.
 FDIR=$HOME/.config/todo
+#Default apps
+BROWSER=firefox
+OPEN=xdg-open
 
 #Code Tiem
-CATEGORY=$(grep = $FDIR/list | awk '{ print $2 }' | $DMENU -p Category:)
+CATEGORY=$(grep = $FDIR/list | awk '{ print $2 }' | $DMENU -p Category/Option:)
 if [ -n $CATEGORY ]
 then
 	if [ $CATEGORY = "-e" ]
@@ -22,11 +26,13 @@ then
 	else
 		CATEGORY="= $CATEGORY"
 		FORMAT=$(printf '/^%s$/,/^= .*$/ {/^%s$/d;/^=.*$/d;p}' "$CATEGORY" "$CATEGORY")
-		ITEM=$(sed -n "$FORMAT" $FDIR/list | $DMENU -l 10 -p Item:)
-		if [ -n $ITEM ]
-		then
-			ITEM=$(printf '{/%s$/d;p}' "$ITEM")
-			sed -n -i "$ITEM" ../todo/list
-		fi
+		ITEM=$(sed -n "$FORMAT" $FDIR/list | $DMENU -l 10 -p Item/Option:)
+		case $ITEM in
+			-e)urxvt -e nano $FDIR/list ;;
+			-h)urxvt -e less $FDIR/help ;;
+			\#*)echo $ITEM | awk '{ print $2 }' | xargs $BROWSER ;;
+			!*)echo $ITEM | awk '{ print $2 }' | xargs $OPEN ;;
+			*)true;;
+		esac
 	fi
 fi
