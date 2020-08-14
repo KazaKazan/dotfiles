@@ -27,3 +27,9 @@ Workspace 10 (music)
 ![screenshot](img/mus.jpg)
 Wallpaper used
 ![screenshot](img/walp.jpg)
+
+## Installation
+
+* Copy the .config, .newsboat folders and the .Xresources file to your home directory.
+* Copy the lightdm folder to your /etc directory.
+* Add source $HOME/.config/bash/bashrc to your /etch/bash.bashrc
